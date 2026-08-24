@@ -1,0 +1,16 @@
+{
+  "name": "lustrum-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "screenshot": "node screenshot.mjs",
+    "dev": "npx vite --port 5173"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "playwright": "^1.62.1"
+  }
+}

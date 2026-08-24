@@ -1,0 +1,452 @@
+/* ---------------------------------------------------------------
+   Fonts (self-hosted, Playfair Display)
+   --------------------------------------------------------------- */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/playfair-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/playfair-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/playfair-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/playfair-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/playfair-italic-400.woff2') format('woff2');
+}
+
+/* ---------------------------------------------------------------
+   Design tokens
+   --------------------------------------------------------------- */
+:root {
+  /* Monochrome palette — two values, never raw hex below */
+  --bg: #0A0A0A;
+  --fg: #F2F2F2;
+
+  /* Opacity tiers: dim = secondary readable (57% ≈ AA floor on #0A0A0A),
+     ghost = pure decoration */
+  --fg-dim:   rgba(242, 242, 242, 0.65);
+  --fg-ghost: rgba(242, 242, 242, 0.35);
+
+  /* Type */
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --step--1: clamp(0.75rem, 0.72rem + 0.15vw, 0.85rem);
+  --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.75rem, 1.5rem + 1.2vw, 2.5rem);
+  --step-3: clamp(2.25rem, 1.9rem + 1.7vw, 3.25rem);
+  --step-4: clamp(2.75rem, 2.2rem + 2.6vw, 4.25rem);
+  --step-5: clamp(3.25rem, 2.4rem + 4.2vw, 5.5rem);
+
+  /* Spacing scale */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+  --space-7: 9rem;
+
+  --space-section: clamp(3rem, 8vh, 7rem);
+
+  /* Z-index stack */
+  --z-starfield: 0;
+  --z-giant-number: 1;
+  --z-rails: 1;
+  --z-content: 2;
+}
+
+/* ---------------------------------------------------------------
+   Base
+   --------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  position: relative;
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* ---------------------------------------------------------------
+   Rails — 0.5px hairlines framing the content column
+   --------------------------------------------------------------- */
+.rail {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0.5px;
+  background: var(--fg-ghost);
+  z-index: var(--z-rails);
+  pointer-events: none;
+}
+
+.rail-left {
+  left: clamp(0.75rem, 2vw, 2rem);
+}
+
+.rail-right {
+  right: clamp(0.75rem, 2vw, 2rem);
+}
+
+h1, h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.1;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+}
+
+.label {
+  font-size: var(--step--1);
+  letter-spacing: 0.25em;
+  text-transform: none;
+  color: var(--fg-dim);
+  margin: 0 0 var(--space-2);
+}
+
+/* ---------------------------------------------------------------
+   Hero
+   --------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: var(--space-4) var(--space-3);
+}
+
+.starfield-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-starfield);
+  pointer-events: none;
+}
+
+#starfield {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.giant-number {
+  position: absolute;
+  top: 4%;
+  right: 4%;
+  z-index: var(--z-giant-number);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: clamp(8rem, 30vw, 26rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--fg);
+  opacity: 0.3;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-frame {
+  position: relative;
+  z-index: var(--z-content);
+  border: 1px solid var(--fg);
+  padding: var(--space-3) var(--space-4);
+  max-width: 26rem;
+  margin-right: auto;
+}
+
+.hero-frame h1 {
+  font-size: var(--step-4);
+  color: var(--fg);
+}
+
+@media (min-width: 480px) {
+  .hero-frame {
+    max-width: none;
+    width: fit-content;
+  }
+
+  .hero-frame h1 {
+    white-space: nowrap;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Main sections
+   --------------------------------------------------------------- */
+main {
+  position: relative;
+  z-index: var(--z-content);
+}
+
+section {
+  padding: var(--space-section) var(--space-3);
+  max-width: 40rem;
+}
+
+.hook .rule-dot {
+  position: relative;
+  width: 100%;
+  max-width: 22rem;
+  height: 1px;
+  background: var(--fg-ghost);
+  margin-bottom: var(--space-3);
+}
+
+.hook .rule-dot::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--fg-ghost);
+  background: var(--bg);
+}
+
+.hook h2 {
+  font-size: var(--step-3);
+  color: var(--fg);
+  margin-bottom: var(--space-2);
+}
+
+.sub {
+  font-size: var(--step-0);
+  color: var(--fg-dim);
+}
+
+.countdown-section {
+  max-width: 56rem;
+}
+
+.countdown-section .date-heading {
+  font-size: clamp(2.5rem, 1.8rem + 3.4vw, 4.5rem);
+  color: var(--fg);
+  margin: var(--space-1) 0 var(--space-2);
+}
+
+@media (min-width: 480px) {
+  .countdown-section .date-heading {
+    white-space: nowrap;
+  }
+}
+
+.countdown {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  margin-top: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.countdown-value {
+  font-family: var(--font-serif);
+  font-size: clamp(3.25rem, 1.5rem + 6vw, 6rem);
+  color: var(--fg);
+  line-height: 1;
+}
+
+.countdown-label {
+  font-size: var(--step--1);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  margin-top: var(--space-1);
+}
+
+.countdown-fallback {
+  margin-top: var(--space-5);
+  font-family: var(--font-serif);
+  font-size: var(--step-2);
+  color: var(--fg);
+}
+
+/* ---------------------------------------------------------------
+   Invitation panel — light block, inset hairline stroke
+   --------------------------------------------------------------- */
+.invitation {
+  background: var(--fg);
+  color: var(--bg);
+  width: 100%;
+  max-width: none;
+  /* ~20% more vertical space than sibling sections */
+  padding: clamp(3rem, 7.2vw, 6rem) clamp(1.5rem, 6vw, 5rem);
+  text-align: left;
+  outline: 1px solid var(--bg);
+  outline-offset: -8px;
+}
+
+.invitation h2 {
+  color: var(--bg);
+  font-size: var(--step-3);
+  margin-bottom: var(--space-3);
+}
+
+.invitation p {
+  color: var(--bg);
+  font-size: var(--step-0);
+  margin-bottom: var(--space-2);
+}
+
+.invitation .invitation-when {
+  font-weight: 600;
+}
+
+.invitation .invitation-where {
+  font-family: var(--font-serif);
+  font-size: var(--step-1);
+  margin-bottom: var(--space-3);
+}
+
+/* Extra vertical breathing room above and below the panel */
+.invitation {
+  margin-top: calc(var(--space-section) * 1.2);
+  margin-bottom: calc(var(--space-section) * 1.2);
+}
+
+/* ---------------------------------------------------------------
+   Footer
+   --------------------------------------------------------------- */
+footer {
+  position: relative;
+  z-index: var(--z-content);
+  padding: var(--space-section) var(--space-3) var(--space-5);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.footer-line {
+  font-family: var(--font-serif);
+  font-size: var(--step-1);
+  color: var(--fg);
+}
+
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  border: 1px solid var(--fg-dim);
+  color: var(--fg-dim);
+  text-decoration: none;
+  padding: 0.6em 1.2em;
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+}
+
+.instagram-link:hover {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+
+.footer-org,
+.footer-email {
+  font-size: var(--step--1);
+  color: var(--fg-dim);
+}
+
+.footer-email a {
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------------
+   Scroll reveal
+   --------------------------------------------------------------- */
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(1.5rem);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* ---------------------------------------------------------------
+   Desktop composition
+   --------------------------------------------------------------- */
+@media (min-width: 900px) {
+  .hero {
+    padding: var(--space-6) var(--space-6);
+  }
+
+  .hero-frame {
+    margin-left: 4vw;
+    margin-top: -8vh;
+  }
+
+  section {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+    max-width: 44rem;
+  }
+
+  .countdown-section {
+    max-width: 60rem;
+  }
+
+  .hook h2 {
+    white-space: nowrap;
+  }
+
+  .invitation {
+    padding: clamp(3.6rem, 7.2vw, 6rem) var(--space-6);
+  }
+}

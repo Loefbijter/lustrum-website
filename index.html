@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>De Loefbijter — 12e lustrum</title>
+  <meta name="description" content="De opening van het 12e lustrum van NSZV De Loefbijter, dinsdag 8 september 2026.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="De Loefbijter — 12e lustrum">
+  <meta property="og:description"
+    content="De opening van het 12e lustrum van NSZV De Loefbijter, dinsdag 8 september 2026.">
+  <meta property="og:image" content="https://lustrum.loefbijter.nl/og.png">
+  <meta property="og:url" content="https://lustrum.loefbijter.nl/">
+  <meta property="og:locale" content="nl_NL">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="De Loefbijter — 12e lustrum">
+  <meta name="twitter:description"
+    content="De opening van het 12e lustrum van NSZV De Loefbijter, dinsdag 8 september 2026.">
+  <meta name="twitter:image" content="https://lustrum.loefbijter.nl/og.png">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="rail rail-left" aria-hidden="true"></div>
+  <div class="rail rail-right" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="starfield-wrap" aria-hidden="true">
+      <canvas id="starfield"></canvas>
+    </div>
+    <div class="giant-number" aria-hidden="true">XII</div>
+
+    <div class="hero-frame">
+      <p class="label">12e lustrum</p>
+      <h1>N.S.Z.V. De Loefbijter</h1>
+    </div>
+  </header>
+
+  <main>
+    <section class="hook">
+      <div class="rule-dot" aria-hidden="true"></div>
+      <h2>Het lustrum komt eraan!</h2>
+      <!-- <p class="sub">Nog even en je weet wat het wordt.</p> -->
+    </section>
+
+    <section class="countdown-section">
+      <p class="label">Wees erbij</p>
+      <h2 class="date-heading">8 september 2026</h2>
+      <p class="sub">Direct na het diner-rouler</p>
+
+      <div class="countdown" id="countdown" aria-live="off">
+        <div class="countdown-unit">
+          <span class="countdown-value" id="cd-days">00</span>
+          <span class="countdown-label">Dagen</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-value" id="cd-hours">00</span>
+          <span class="countdown-label">Uren</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-value" id="cd-minutes">00</span>
+          <span class="countdown-label">Minuten</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-value" id="cd-seconds">00</span>
+          <span class="countdown-label">Seconden</span>
+        </div>
+      </div>
+      <p class="countdown-fallback" id="countdown-fallback" hidden>Het is zover.</p>
+    </section>
+
+    <section class="invitation">
+      <h2>Openingsreceptie Lustrum</h2>
+      <p class="invitation-when">dinsdag 8 september 2026, 20:00</p>
+      <p class="invitation-where">De Waagh</p>
+      <p>Die avond onthullen we het thema, het logo, de kleuren, en meer.</p>
+      <p>Iedereen is welkom, aanmelden is niet nodig.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p class="footer-line">Check onze socials voor updates.</p>
+    <a class="instagram-link" href="https://www.instagram.com/lustrumloefbijter/" target="_blank"
+      rel="noopener noreferrer">
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+        stroke-width="1.5">
+        <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+        <circle cx="12" cy="12" r="4.2"></circle>
+        <circle cx="17.4" cy="6.6" r="1"></circle>
+      </svg>
+      <span>Instagram</span>
+    </a>
+    <p class="footer-org">NSZV De Loefbijter</p>
+    <p class="footer-email"><a href="mailto:lustrum@loefbijter.nl">lustrum@loefbijter.nl</a></p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
