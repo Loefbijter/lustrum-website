@@ -1,5 +1,5 @@
 (function countdown() {
-  var TARGET = new Date('2026-09-08T20:00:00+02:00').getTime();
+  var TARGET = new Date('2026-09-08T20:30:00+02:00').getTime();
 
   var els = {
     days: document.getElementById('cd-days'),
