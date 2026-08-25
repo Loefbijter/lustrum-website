@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "screenshot": "node screenshot.mjs",
-    "dev": "npx vite --port 5173"
+    "dev": "npx vite --port 5173",
+    "build": "rm -rf dist && mkdir -p dist && cp index.html styles.css main.js og.png dist/ && cp -r fonts dist/"
   },
   "keywords": [],
   "author": "",

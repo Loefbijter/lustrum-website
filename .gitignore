@@ -5,4 +5,4 @@ shots/
 *.jpeg
 *.gif
 *.webp
-.devcontainer/
+.devcontainer/dist/
