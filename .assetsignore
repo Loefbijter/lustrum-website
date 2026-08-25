@@ -1,0 +1,11 @@
+node_modules
+.git
+.gitignore
+.devcontainer
+shots
+*.mjs
+package.json
+package-lock.json
+wrangler.jsonc
+.assetsignore
+CNAME
